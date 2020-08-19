@@ -6,11 +6,12 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 21:36:06 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/16 23:37:10 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/18 15:30:27 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void			ft_putchar(char c)
 {
@@ -61,4 +62,9 @@ void			ft_putnbr_base(int nbr, char *base)
 			ft_putnbr_base(nb / t, base);
 		ft_putchar(base[nb % t]);
 	}
+}
+int main()
+{
+	char base[] = "0123456789abcdef";
+	ft_putnbr_base(0, base);
 }

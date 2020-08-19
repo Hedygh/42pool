@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 21:07:39 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/17 21:13:22 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/18 23:48:35 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ int		ft_iterative_power(int nb, int power)
 		return (nb);
 	while (i <= power)
 	{
-	r = r * nb;
-	i++;
+		r = r * nb;
+		i++;
 	}
-	return(r);
-}
-int main()
-{
-	printf("%d", ft_iterative_power(5, 5));
+	return (r);
 }

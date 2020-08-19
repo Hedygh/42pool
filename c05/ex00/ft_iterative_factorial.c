@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 00:05:38 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/17 19:20:51 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/18 15:02:47 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,4 @@ int		ft_iterative_factorial(int nb)
 		i++;
 	}
 	return (j);
-}
-int main()
-{
-printf("%d", ft_iterative_factorial(5));
 }
