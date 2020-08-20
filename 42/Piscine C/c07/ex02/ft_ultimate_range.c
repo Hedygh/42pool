@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/18 19:24:07 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/18 19:24:16 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/20 11:42:50 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/20 12:03:52 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_check_prime(int nb)
+#include <stdlib.h>
+#include <unistd.h>
+
+int		ft_ultimate_range(int **range, int min, int max)
 {
 	int i;
 
-	i = 2;
-	if (nb <= 1)
+	i = 0;
+	if (min >= max)
 		return (0);
-	while (i < nb && i < 46341)
+	if(!(*range = malloc(sizeof(int) * max - min)))
+		return (0);
+
+	while (min < max)
 	{
-		if (nb % i == 0)
-			return (0);
+		tab[i] = min;
 		i++;
+		min++;
 	}
-	return (1);
+	if (i == max - min)
+		return (i);
+	else
+		return (-1);
 }
 
-int		ft_find_next_prime(int nb)
+int main()
 {
-	int find;
-
-	find = nb;
-	if (nb <= 2)
-		return (2);
-	if (nb == 2)
-		return (nb);
-	while (find)
-	{
-		if (ft_check_prime(find) == 1)
-			return (find);
-		find++;
-	}
-	return (0);
+	int *tab;
+	ft_ultimate_range(&tab, 5, 15);
 }

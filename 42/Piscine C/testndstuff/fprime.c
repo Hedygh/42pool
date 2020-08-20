@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   fprime.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/18 19:24:07 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/18 19:24:16 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/19 17:56:48 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/19 18:46:01 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_check_prime(int nb)
+#include <stdio.h>
+#include <string.h>
+
+int main(int ac, char **av)
 {
 	int i;
+	int a;
+	long int j;
 
-	i = 2;
-	if (nb <= 1)
-		return (0);
-	while (i < nb && i < 46341)
+	i = 1;
+	a = 0;
+	if(ac != 1)
 	{
-		if (nb % i == 0)
-			return (0);
+		while(av[1][i])
+		{
+		atoi(av[1][i]);
 		i++;
-	}
-	return (1);
-}
+		}
+		j = atoi;
 
-int		ft_find_next_prime(int nb)
-{
-	int find;
-
-	find = nb;
-	if (nb <= 2)
-		return (2);
-	if (nb == 2)
-		return (nb);
-	while (find)
-	{
-		if (ft_check_prime(find) == 1)
-			return (find);
-		find++;
 	}
-	return (0);
+	printf("\n");
 }

@@ -6,12 +6,25 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 18:36:42 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/17 13:18:21 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/20 13:19:05 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
+int				ft_getindex(char *str, char c)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] == c)
+			return (i);
+		i++;
+	}
+	return(0);
+}
 int				ft_chkbase(char *str)
 {
 	int i;
@@ -62,7 +75,7 @@ int				ft_atoi_base(char *str, char *base)
 		}
 		while (str[i] >= '0' && str[i] <= '9')
 		{
-			nb = nb * t + str[i] - '0'; 
+			nb = nb * t + ft_getindex(str, str[i]); 
 		i++;
 		}
 	}
@@ -70,7 +83,7 @@ int				ft_atoi_base(char *str, char *base)
 }
 int main()
 {
-	char str[] = "   ---++-10anbc";
+	char str[] = "   ---++-150anbc";
 	char base[] = "0123456789abcdef";
 	printf("%d", ft_atoi_base(str, base));
 }

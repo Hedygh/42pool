@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/18 19:24:07 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/18 19:24:16 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/19 16:50:44 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_check_prime(int nb)
+#include <stdlib.h>
+#include <stdio.h>
+
+char	*ft_strdup(char *src)
 {
 	int i;
+	char *dest;
 
-	i = 2;
-	if (nb <= 1)
+	i = 0;
+		while (src[i])
+		{
+			i++;
+		}
+	if(!(dest = malloc(sizeof(char) * i + 1)))
 		return (0);
-	while (i < nb && i < 46341)
+	int j;
+
+	j = 0;
+	while (src[j])
 	{
-		if (nb % i == 0)
-			return (0);
-		i++;
+		dest[j] = src[j];
+		j ++;
 	}
-	return (1);
+	printf("%s", dest);
+	free(dest);
+	return (0);
 }
 
-int		ft_find_next_prime(int nb)
+int main()
 {
-	int find;
-
-	find = nb;
-	if (nb <= 2)
-		return (2);
-	if (nb == 2)
-		return (nb);
-	while (find)
-	{
-		if (ft_check_prime(find) == 1)
-			return (find);
-		find++;
-	}
-	return (0);
+	char src [] = "hello";
+	ft_strdup(src);
+	return(0);
 }
