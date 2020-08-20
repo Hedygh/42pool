@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 10:55:02 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/20 11:39:38 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/20 13:38:48 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		*ft_range(int min, int max)
 
 	i = 0;
 	if(min >= max)
-		return (0);
+		*tab = NULL;
 	if(!(tab = malloc(sizeof(int) * (max - min))))
 		return (0);
 	while (min < max)
@@ -40,6 +40,5 @@ int main()
 	{
 		printf("%d", tab[i]);
 			i++;
-	}
-	
+	}	
 }

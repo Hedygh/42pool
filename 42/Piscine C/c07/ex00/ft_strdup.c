@@ -15,6 +15,7 @@
 char	*ft_strdup(char *src)
 {
 	int i;
+	int j;
 	char *dest;
 
 	i = 0;
@@ -24,22 +25,19 @@ char	*ft_strdup(char *src)
 		}
 	if(!(dest = malloc(sizeof(char) * i + 1)))
 		return (0);
-	int j;
-
 	j = 0;
 	while (src[j])
 	{
 		dest[j] = src[j];
 		j ++;
 	}
-	printf("%s", dest);
-	free(dest);
-	return (0);
+	dest[j] = '\0';
+	return (dest);
 }
 
 int main()
 {
 	char src [] = "hello";
-	ft_strdup(src);
+	printf("%s", ft_strdup(src));
 	return(0);
 }
