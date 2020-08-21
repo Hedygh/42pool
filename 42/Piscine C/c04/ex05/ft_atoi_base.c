@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 18:36:42 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/20 13:19:05 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/21 15:46:53 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int				ft_getindex(char *str, char c)
 			return (i);
 		i++;
 	}
-	return(0);
+	return(-1);
 }
 int				ft_chkbase(char *str)
 {
@@ -73,7 +73,7 @@ int				ft_atoi_base(char *str, char *base)
 				c = c * -1;
 			i++;
 		}
-		while (str[i] >= '0' && str[i] <= '9')
+		while (ft_getindex() != -1)
 		{
 			nb = nb * t + ft_getindex(str, str[i]); 
 		i++;
