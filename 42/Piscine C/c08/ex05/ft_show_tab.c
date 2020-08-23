@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/22 23:51:49 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/23 15:14:58 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/23 16:21:58 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ void	ft_putstr(char *str)
 		write(1, &str[i], 1);
 		i++;
 	}
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
 }
 
 void	ft_putnbr(int nb)
@@ -65,7 +60,7 @@ void	ft_show_tab(struct s_stock_str *par)
 		ft_putchar('\n');
 		ft_putnbr(par[i].size);
 		ft_putchar('\n');
-		ft_putstr(par[i].coppy);
+		ft_putstr(par[i].copy);
 		ft_putchar('\n');
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/23 01:10:34 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/23 15:33:11 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/23 16:22:46 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int						ft_strlen(char *str)
 	return (i);
 }
 
-struct t_stock_str		*ft_strs_to_tab(int ac, char **av)
+struct s_stock_str		*ft_strs_to_tab(int ac, char **av)
 {
 	int			i;
 	t_stock_str *par;
@@ -62,13 +62,4 @@ struct t_stock_str		*ft_strs_to_tab(int ac, char **av)
 	}
 	par[i].str = 0;
 	return (par);
-}
-
-#include <stdio.h>
-int main(int ac, char **av)
-{
-	if(ac > 0)
-	{
-		ft_strs_to_tab(ac, av);
-	}
 }
