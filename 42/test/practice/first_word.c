@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   first_word.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 14:38:14 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/23 00:39:26 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/23 15:08:56 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/23 15:11:53 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include <unistd.h>
 
-void	ft_putchar(charc);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
-
-#endif
+int	main (int ac, char **av)
+{
+	int i = 0;
+	if (ac == 2)
+	{
+		while ((av[1][i] == ' ') || (av[1][i] == '\t'))
+			i++;
+		while (av[1][i] != ' ' && av[1][i] != '\0' && av[1][i] != '\t')
+		{
+			write(1, &av[1][i], 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
+}

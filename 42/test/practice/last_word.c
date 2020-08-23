@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   last_word.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/21 14:38:14 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/23 00:39:26 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/23 14:09:56 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/23 14:59:22 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include <unistd.h>
 
-void	ft_putchar(charc);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+void	ft_last_word(char *str)
+{
+	int i;
+	int j;
 
-#endif
+	i = 0;
+	while (str[i])
+			{
+				if (((str[i] == ' ') || (str[i] == '\t')) && str[i+1] >= 32 && str[i+1] <= 126)
+				j = i + 1;
+				i++;
+			}
+	while (str[j] >= 32 && str[i] <= 126)
+	{
+		write(1, &str[j], 1);
+		j++;
+	}
+}
+
+int main(int ac, char **av)
+{
+	if (ac == 2)
+	{
+		ft_last_word(av[1]);
+	}
+	write (1,"\n", 1);
+	return (0);
+}
