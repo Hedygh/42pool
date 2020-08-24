@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fprime.c                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/19 17:56:48 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/19 18:46:01 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/24 18:16:53 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/24 18:20:30 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-int main(int ac, char **av)
+int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
-	int a;
-	long int j;
 
-	i = 1;
-	a = 0;
-	if(ac != 1)
-	{
-		while(av[1][i])
-		{
-		atoi(av[1][i]);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
 		i++;
-		}
-		j = atoi;
-
-	}
-	printf("\n");
+	return (s1[i] - s2[i]);
 }

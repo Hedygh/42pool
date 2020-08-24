@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/23 20:31:17 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/24 12:21:29 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/24 19:11:34 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*Write a program that takes two strings and checks whether it's possible to
@@ -36,9 +36,9 @@ int		check(char *s1, char *s2)
 {
 	int i = 0;
 	int j = 0;
-	while (s1[i])
-	{
-		while(s2[j])
+//	while (s1[i])
+//	{
+		while(s2[j] && s1[i])
 		{
 			if (s1[i] == s2[j] && s1[i + 1] == '\0')
 				return(1);
@@ -46,8 +46,8 @@ int		check(char *s1, char *s2)
 			i = i + 1;
 			j++;
 		}
-	i++;
-	}
+//	i++;
+//	}
 	return(0);
 }
 int main(int ac, char **av)
