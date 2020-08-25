@@ -1,45 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   inter.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/18 23:15:06 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/19 15:23:31 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/25 12:53:27 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/25 13:25:58 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int		ft_check(char *str, char c, int index)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
+	int i = 0;
+	while (i < index)
 	{
-		write(1, &str[i], 1);
-		i++;
+		if(str[i] == c)
+			return(0);
+				i++;
 	}
-	if (str[i] == '\0')
-		write(1, "\n", 1);
+	return (1);
 }
 
-int		main(int ac, char **av)
+void	ft_inter(char *s1, char *s2)
 {
-	int i;
-	int tmp;
-
-	i = 0;
-	tmp = ac - 1;
-	if (ac > 1)
+	int i = 0;
+	int j; 
+	while (s1[i])
 	{
-		while (tmp > i)
+		j = 0;
+		if(ft_check(s1, s1[i], i) == 1)
 		{
-			ft_putstr(av[tmp]);
-			tmp--;
+			while (s2[j])
+			{
+				if(s1[i] == s2[j] && ft_check(s2,s2[j], j) == 1)
+				write(1, &s1[i], 1);
+				j++;
+			}			
 		}
+		i++; 
 	}
+}
+
+int main(int ac, char **av)
+{
+	if(ac == 3)
+	{
+		ft_inter(av[1],av[2]);
+	}
+	write(1, "\n", 1);
 	return (0);
 }
