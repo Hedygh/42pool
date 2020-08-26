@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/25 13:43:38 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/25 21:07:42 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/25 20:08:51 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/26 12:56:08 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*Write a function that takes an int and converts it to a null-terminated string.
-The function returns the result in a char array that you must allocate.
-
-Your function must be declared as follows:*/
 
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 char	*ft_strrev(char *str)
 {
@@ -35,35 +29,56 @@ char	*ft_strrev(char *str)
 	}
 	return(str);
 }
-char	*ft_itoa(int nbr)
+
+int				ft_chkbase(char *str)
 {
-	int i = 0;
-	char *str;
-	int sign;
-	if(!(str = malloc(sizeof(char) * 12)))
-		return (0);
-	if (nbr == -2147483648)
-		return("-2147483648");
-	if (nbr == 0)
-		return ("0");
-	if (nbr < 0)
+	int i;
+	int j;
+
+	i = 0;
+	while (str[i])
 	{
-	nbr = -nbr;
-	sign = -1;
-	}
-	while (nbr)
-	{
-		str[i] = nbr % 10 + '0';
-		nbr = nbr / 10;
+		j = i + 1;
+		if ((str[i] == '-') || (str[i] == '+'))
+			return (0);
+		while (str[j])
+		{
+			if (str[i] == str[j])
+				return (0);
+			j++;
+		}
 		i++;
 	}
-	if(sign == -1)
-	str[i] = '-';
+	if (i <= 1)
+		return (0);
+	else
+		return (i);
+}
+
+char	ft_itoa_base(int nb, char *base)
+{
+	int i;
+	char *str;
+	int t;
+	long nbr;
+
+	nbr = nb;
+	t = ft_chkbase(base);
+	i = 0;
+	if(!(str = malloc(sizeof(char) * t + 2)))
+		return (0);
+	while (nbr)
+	{
+		str[i] = nbr % t + '0';
+		nbr = nbr / 10;
+	}
 	return (ft_strrev(str));
 }
-int main(int ac, char **av)
+char	ft_convert_base2(int nb, char *base_to)
 {
-	(void)ac;
-	printf("%s", ft_itoa(atoi(av[1])));
-	return(0);
+	if(!(ft_itoa_base = malloc (sizeof(char) * 34)))
+		return (0);
+	return (ft_itoa_base(nb, base_to);
 }
+				
+

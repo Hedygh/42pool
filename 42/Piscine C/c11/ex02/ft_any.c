@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 18:10:23 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/25 18:19:05 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/25 21:50:26 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_any(char **tab, int (*f)(char*))
 	i = 0;
 	while (tab[i])
 	{
-		if (f(tab[i]) == 1)
+		if (f(tab[i]) != 0)
 			return (1);
 		i++;
 	}
