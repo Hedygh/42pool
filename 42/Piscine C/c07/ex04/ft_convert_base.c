@@ -6,12 +6,14 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 19:46:48 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/26 12:51:20 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/26 13:03:55 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+char	*ft_itoa_base(int nb, char *base);
+
 int				ft_getindex(char *str, char c)
 {
 	int i;
@@ -84,17 +86,17 @@ int				ft_atoi_base(char *str, char *base)
 
 char 	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
+	char *res;
 	if ((nbr == '\0') || (base_from =='\0') ||  (base_to == '\0'))
 		return(0);
 	int nb;
-	ft_atoi_base(nbr, base_from);
 	nb = ft_atoi_base(nbr, base_from);
-	ft_convert_base2(nb, base_to);
-	return (ft_convert_base2(nb, base_to));
+	res = ft_itoa_base(nb, base_to);
+	return (res);
 }
 int main()
 {
-	char nb [] = "    ---+--+1234dwad554";
+	char nb[] = "    ---+--+1234dwad554";
 	char base_from[] = "0123456789abcdef";
 	char base_to[] = "0123456789";
 	printf("%s", ft_convert_base(nb, base_from, base_to));

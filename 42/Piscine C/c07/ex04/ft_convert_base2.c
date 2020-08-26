@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 20:08:51 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/26 12:56:08 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/26 13:00:45 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				ft_chkbase(char *str)
 		return (i);
 }
 
-char	ft_itoa_base(int nb, char *base)
+char	*ft_itoa_base(int nb, char *base)
 {
 	int i;
 	char *str;
@@ -74,11 +74,3 @@ char	ft_itoa_base(int nb, char *base)
 	}
 	return (ft_strrev(str));
 }
-char	ft_convert_base2(int nb, char *base_to)
-{
-	if(!(ft_itoa_base = malloc (sizeof(char) * 34)))
-		return (0);
-	return (ft_itoa_base(nb, base_to);
-}
-				
-
