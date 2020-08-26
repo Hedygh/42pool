@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/13 15:18:43 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/26 21:10:31 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/26 20:20:27 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/26 20:20:53 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+void	ft_putchar(char c)
 {
-	unsigned int j;
-	unsigned int i;
-	unsigned int k;
+	write(1, &c, 1);
+}
 
-	j = 0;
-	i = 0;
-	k = 0;
-	while (src[k])
-		k++;
-	while (dest[i])
-		i++;
-	while (src[j] && (i + j) < size - 1)
+void	ft_putnbr(int nb)
+{
+	unsigned int nbr;
+
+	nbr = nb;
+	if (nb < 0)
 	{
-		dest[i + j] = src[j];
-		j++;
+		ft_putchar('-');
+		nbr = -nb;
 	}
-	dest[i + j] = '\0';
-	return (k + size);
+	if (nbr <= 9)
+		ft_putchar(nbr + '0');
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10);
+		ft_putchar(nbr % 10 + '0');
+	}
 }
