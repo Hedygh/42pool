@@ -6,30 +6,12 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 16:45:15 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/26 17:04:26 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:07:50 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
-
-char	*ft_strrev(char *str)
-{
-	int i = 0;
-	int j = 0;
-	char tmp;
-	while (str[j + 1] != '\0')
-		j++;
-	while (i < j)
-	{
-		tmp = str[i];
-		str[i] = str[j];
-		str[j] = tmp;
-		i++;
-		j--;
-	}
-	return(str);
-}
 
 int				ft_chekbase(char *str)
 {
@@ -58,17 +40,20 @@ int				ft_chekbase(char *str)
 int		ft_lenb(int nb, char *base)
 { 
 	long nbr;
-	int i  = 0;
+	int i = 0;
 
 	nbr = nb;
 	if (nbr <= 0)
+	{
 		i = 1;
+		nbr  = -nbr;
+	}
 	while (nbr)
 	{
 		nbr = nbr / ft_chekbase(base);
 		i++;
 	}
-	return(i);
+	return (i);
 }
 char	*ft_itoa_base(int nb, char *base)
 {
@@ -78,17 +63,20 @@ char	*ft_itoa_base(int nb, char *base)
 
 	i = 0;
 	nbr = nb;
-	if(!(str = malloc(sizeof(char) * (ft_lenb(nb, base) + 1))))
+	if (!(str = malloc(sizeof(char) * ((i = ft_lenb(nb, base)) + 1))))
 		return (0);
+	if (nb == 0)
+		str[0] = base[0];
 	str[ft_lenb(nb, base)] = '\0';
 	if (nbr < 0)
 	{
+		str[0] = '-';
+		nbr *= -1;
 	}
-	while(i < ft_lenb(nb, base))
+	while (nbr > 0)
 	{
-		str[i] = base[nbr % ft_chekbase(base)];
+		str[--i] = base[nbr % ft_chekbase(base)];
 		nbr = nbr / ft_chekbase(base);
-		i++;
 	}
-	return (ft_strrev(str));
+	return (str);
 }
