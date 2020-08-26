@@ -6,11 +6,12 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 20:08:51 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/26 13:00:45 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/26 13:48:56 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 char	*ft_strrev(char *str)
 {
@@ -30,7 +31,7 @@ char	*ft_strrev(char *str)
 	return(str);
 }
 
-int				ft_chkbase(char *str)
+int				ft_chekbase(char *str)
 {
 	int i;
 	int j;
@@ -59,18 +60,25 @@ char	*ft_itoa_base(int nb, char *base)
 {
 	int i;
 	char *str;
-	int t;
 	long nbr;
+	int nbrr;
 
-	nbr = nb;
-	t = ft_chkbase(base);
 	i = 0;
-	if(!(str = malloc(sizeof(char) * t + 2)))
+	nbr = nb;
+	nbrr = nb;
+	while (nbrr)
+	{
+		nbrr = nbrr / ft_chekbase(base);
+		i++;
+	}	
+	if(!(str = malloc(sizeof(char) * (i + 1))))
 		return (0);
+	i = 0;
 	while (nbr)
 	{
-		str[i] = nbr % t + '0';
-		nbr = nbr / 10;
+		str[i] = base[nbr % ft_chekbase(base)];
+		nbr = nbr / ft_chekbase(base);
+		i++;
 	}
 	return (ft_strrev(str));
 }
