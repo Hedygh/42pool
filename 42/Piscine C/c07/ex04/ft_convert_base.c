@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 19:46:48 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/26 13:45:29 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:02:34 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ char 	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 int main()
 {
 	char nb[] = "42";
-	char base_to[] = "01";
-	char base_from[] = "0123456789";
+	char base_to[] = "abcd";
+	char base_from[] = "123456789";
 	printf("%s", ft_convert_base(nb, base_from, base_to));
 	return (0);
 }

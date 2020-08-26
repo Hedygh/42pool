@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/25 20:08:51 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/26 13:48:56 by heouahes         ###   ########.fr       */
+/*   Created: 2020/08/26 16:45:15 by heouahes          #+#    #+#             */
+/*   Updated: 2020/08/26 17:04:26 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,36 @@ int				ft_chekbase(char *str)
 	else
 		return (i);
 }
+int		ft_lenb(int nb, char *base)
+{ 
+	long nbr;
+	int i  = 0;
 
+	nbr = nb;
+	if (nbr <= 0)
+		i = 1;
+	while (nbr)
+	{
+		nbr = nbr / ft_chekbase(base);
+		i++;
+	}
+	return(i);
+}
 char	*ft_itoa_base(int nb, char *base)
 {
 	int i;
 	char *str;
 	long nbr;
-	int nbrr;
 
 	i = 0;
 	nbr = nb;
-	nbrr = nb;
-	while (nbrr)
-	{
-		nbrr = nbrr / ft_chekbase(base);
-		i++;
-	}	
-	if(!(str = malloc(sizeof(char) * (i + 1))))
+	if(!(str = malloc(sizeof(char) * (ft_lenb(nb, base) + 1))))
 		return (0);
-	i = 0;
-	while (nbr)
+	str[ft_lenb(nb, base)] = '\0';
+	if (nbr < 0)
+	{
+	}
+	while(i < ft_lenb(nb, base))
 	{
 		str[i] = base[nbr % ft_chekbase(base)];
 		nbr = nbr / ft_chekbase(base);
