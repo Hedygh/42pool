@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 15:34:56 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/21 13:44:00 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/27 15:25:02 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,18 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	return (newstr);
+}
+#include <stdio.h>
+int main()
+{
+	char **tab;
+	char *dest;
+
+	tab[0] = "salut";
+	tab[1] = "bonjour";
+	tab[2] = "hello";
+	tab[3] = "blabla";
+	dest = ft_strjoin(4, tab, " ");
+	printf("%s\n", dest);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: heouahes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 18:36:42 by heouahes          #+#    #+#             */
-/*   Updated: 2020/08/21 15:46:53 by heouahes         ###   ########.fr       */
+/*   Updated: 2020/08/27 11:48:28 by heouahes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int				ft_chkbase(char *str)
 		j = i + 1;
 		if ((str[i] == '-') || (str[i] == '+'))
 			return (0);
+		if ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+			return (0);
 		while (str[j])
 		{
 			if (str[i] == str[j])
@@ -64,8 +66,7 @@ int				ft_atoi_base(char *str, char *base)
 	if (t != 0)
 	{
 		while ((str[i] == '\t') || (str[i] == '\n') || (str[i] == '\v')
-				|| (str[i] == '\n') ||
-				(str[i] == '\r') || (str[i] == '\f') || (str[i] == ' '))
+				|| (str[i] == '\r') || (str[i] == '\f') || (str[i] == ' '))
 			i++;
 		while ((str[i] == '-') || (str[i] == '+'))
 		{
@@ -73,9 +74,9 @@ int				ft_atoi_base(char *str, char *base)
 				c = c * -1;
 			i++;
 		}
-		while (ft_getindex() != -1)
+		while (ft_getindex(base, str[i]) != -1)
 		{
-			nb = nb * t + ft_getindex(str, str[i]); 
+			nb = nb * t + ft_getindex(base, str[i]); 
 		i++;
 		}
 	}
@@ -83,7 +84,7 @@ int				ft_atoi_base(char *str, char *base)
 }
 int main()
 {
-	char str[] = "   ---++-150anbc";
+	char str[] = "   ---++-42anbc";
 	char base[] = "0123456789abcdef";
 	printf("%d", ft_atoi_base(str, base));
 }
