@@ -3,7 +3,7 @@
 
 int ft_check(char *str, int i)
 {
-    if ((!(str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n')))
+    if ((!(str[i] == ' ')) && (!(str[i] == '\t')) && (!(str[i] == '\n')))
         return (1);
     return (0);
 }
