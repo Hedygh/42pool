@@ -35,11 +35,12 @@ int main(int ac,char **av)
 				write (1,&av[1][i], 1);
 			i++;
 		}
+		int j = i;
 		i = 0;
 		while (av[2][i])
 		{
 			if((ft_union(av[2], av[2][i], i) == 1) && 
-					ft_union(av[1], av[2][i], i) == 1)
+					ft_union(av[1], av[2][i], j) == 1)
 				write(1, &av[2][i], 1);
 			i++;
 		}
